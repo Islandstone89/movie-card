@@ -1,0 +1,229 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+:is(ul, ol) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+    display: inline-block;
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS */
+
+    --clr-primary: #1f2229;
+    --clr-accent: #1869d8;
+    --clr-neutral: #fff;
+    --clr-bg: #f6f8fa;
+
+    /* TYPOGRAPHY */
+
+    --ff-primary: 'Arial', 'Helvetica', sans-serif;
+    --fw-600: 600;
+    --fs-large: 1.25rem;
+    --fs-extraLarge: 2rem;
+}
+
+/* UTILITIES */ 
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.accent {
+    color: var(--clr-accent);
+}
+
+.bold {
+    font-weight: var(--fw-600);
+}
+
+.large {
+  font-size: var(--fs-large);
+}
+
+.extraLarge {
+    font-size: var(--fs-extraLarge);
+}
+
+.flow {
+  --flow-space: 2rem;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space);
+}
+
+
+
+body {
+    padding: 1rem;
+    background-color: var(--clr-bg);
+    color: var(--clr-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    font-family: var(--ff-primary);
+}
+
+.card {
+    background-color: var(--clr-neutral);
+    max-width: 50rem;
+    border-radius: 10px;
+    padding: 4rem 2rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .4);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.genre {
+  --flow-space: .25rem;
+}
+
+.middle {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+.description {
+  --flow-space: 1rem;
+}
+
+.credits {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.list {
+  --flow-space: 1rem;
+}
+
+.list-item {
+  --flow-space: .5rem;
+}
+
+.more {
+  --flow-space: 1.5rem;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buy {
+    --outline-color: var(--clr-primary);
+    outline: 2px solid var(--outline-color);
+    border-radius: 25px;
+    padding: .5rem 2rem;
+
+    &:is(:hover, :focus) {
+      --outline-color: var(--clr-primary);
+      background-color: var(--clr-primary);
+      color: var(--clr-neutral);
+      transition: .2s;
+    }
+}
+
+.trailer {
+  justify-self: self-end;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral);
+  padding: .5rem 1rem;
+  border-radius: 20px;
+
+  &:is(:hover, :focus) {
+    opacity: .9;
+    transition: .2s;
+  }
+}
+
